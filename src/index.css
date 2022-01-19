@@ -1,13 +1,106 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --myBlue: rgb(102, 102, 201);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 4rem;
+}
+
+.formChild {
+    margin: 0 1rem;
+}
+
+fieldset {
+    padding: 0.5rem 8px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+legend {
+    margin-left: 10px;
+}
+
+select {
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    width: 100%;
+}
+
+.btn {
+    padding: 0.5rem 1.8rem;
+    background-color: transparent;
+    border: 2px solid var(--myBlue);
+    color: var(--myBlue);
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+table {
+    margin: auto;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    color: rgb(243, 233, 233);
+    background-color: #444444;
+}
+
+
+td, th {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+}
+th{
+    
+    border-bottom: 1px solid rgb(236, 224, 224);
+}
+
+
+tr:nth-child(odd) {
+    background-color: #2b2727;
+}
+
+.Spinner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(181, 187, 192, 0.541);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.loader {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 9px solid blue;
+    border-top: 9px solid transparent;
+    animation: spinner 0.5s linear infinite;
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotate(360deg);
+    }
 }
