@@ -24,7 +24,6 @@ function Table(props) {
               return <Row key={item.indexOf(element)} item={element} />;
             return (
               <Row
-                style={{ display: "none" }}
                 key={item.indexOf(element)}
                 item={element}
               />
