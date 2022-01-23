@@ -7,38 +7,21 @@
     padding: 0;
 }
 
-
-
 form {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 1rem;
-    margin-top: 4rem;
+    padding: 3rem 0;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100vw;
 }
 
-.formChild {
-    margin: 0 1rem;
+.formChild{
+    margin: 0.5rem 1rem;
 }
 
-fieldset {
-    padding: 0.5rem 8px;
-    width: 150px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
 
-legend {
-    margin-left: 10px;
-}
 
-select {
-    outline: none;
-    cursor: pointer;
-    font-size: 20px;
-    border: none;
-    width: 100%;
-}
 
 .btn {
     padding: 0.5rem 1.8rem;
@@ -66,8 +49,9 @@ td, th {
     padding: 8px;
     border: 1px solid black;
 }
-th{
-    
+
+th {
+
     border-bottom: 1px solid rgb(236, 224, 224);
 }
 

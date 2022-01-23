@@ -1,66 +1,59 @@
 import React, { useContext, useState } from "react";
 import { myContext } from "../Context/Context";
+import { Autocomplete, TextField } from "@mui/material";
 function Submit() {
   const { fetchData } = useContext(myContext);
+  const [year, setYear] = useState("2019");
+  const [sector, setSector] = useState("Energy");
+  const [pollutant, setPollutant] = useState("Methane");
   const submit = (e) => {
     e.preventDefault();
-
-    if (
-      value.pollutants === "none" ||
-      value.sector === "none" ||
-      value.year === "none"
-    )
-      alert("Input not valid ");
-    else fetchData(value);
-  };
-  const [value, setValue] = useState({
-    year: "2019",
-    sector: "Energy",
-    pollutants: "Methane",
-  });
-  const onChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    fetchData({ year, sector, pollutant });
   };
 
+  const years = ["2019", "2018", "2017", "2016", "2015"];
+  const sectors = ["Energy", "Memo", "Waste"];
+  const pollutants = ["Methane", "Nitrous Oxide"];
   return (
     <div>
       <form onSubmit={submit}>
         <div className="formChild">
-          <fieldset>
-            <legend>Year</legend>
-            <label htmlFor="year">
-              <select onChange={onChange} id="year" name="year">
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                <option value="2016">2016</option>
-                <option value="2015">2015</option>
-              </select>
-            </label>
-          </fieldset>
+          <Autocomplete
+            disablePortal
+            value={year}
+            onChange={(event, newValue) => {
+              setYear(newValue);
+            }}
+            options={years}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Year" />}
+          />
         </div>
         <div className="formChild">
-          <fieldset>
-            <legend>Sector</legend>
-            <label htmlFor="sector">
-              <select onChange={onChange} id="sector" name="sector">
-                <option value="Energy">Energy</option>
-                <option value="Memo">Memo</option>
-                <option value="Waste">Waste</option>
-              </select>
-            </label>
-          </fieldset>
+          <Autocomplete
+            value={sector}
+            disablePortal
+            options={sectors}
+            sx={{ width: 300 }}
+            onChange={(event, newValue) => {
+              setSector(newValue);
+            }}
+            renderInput={(params) => <TextField {...params} label="Sector" />}
+          />
         </div>
         <div className="formChild">
-          <fieldset>
-            <legend>Pollutants</legend>
-            <label htmlFor="pollutants">
-              <select onChange={onChange} name="pollutants" id="pollutants">
-                <option value="Methane">Methane</option>
-                <option value="Nitrous Oxide">Nitrous Oxide</option>
-              </select>
-            </label>
-          </fieldset>
+          <Autocomplete
+            value={pollutant}
+            disablePortal
+            options={pollutants}
+            sx={{ width: 300 }}
+            onChange={(event, newValue) => {
+              setPollutant(newValue);
+            }}
+            renderInput={(params) => (
+              <TextField {...params} label="Pollutant" />
+            )}
+          />
         </div>
         <div className="formChild">
           <input type="submit" className="btn" />

@@ -6,7 +6,7 @@ const Context = (props) => {
   const [loader, setLoader] = useState(false);
   const fetchData = async (value) => {
     setLoader(true);
-    const baseURL = `https://api.kendrasustain.com/api/emissionfactor?year=${value.year}&sector=${value.sector}&pollutant=${value.pollutants}`;
+    const baseURL = `https://api.kendrasustain.com/api/emissionfactor?year=${value.year}&sector=${value.sector}&pollutant=${value.pollutant}`;
     const data = await fetch(baseURL);
     const jsonData = await data.json();
     setItem(jsonData);

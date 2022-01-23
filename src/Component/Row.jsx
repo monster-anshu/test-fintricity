@@ -2,6 +2,7 @@ import React from "react";
 
 function Row(props) {
   const { item } = props;
+  console.log(item);
   return (
     <tr>
       <td>{item.pollutant}</td>
